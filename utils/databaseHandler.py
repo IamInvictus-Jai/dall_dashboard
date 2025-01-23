@@ -7,10 +7,15 @@ load_dotenv()
 class MongoDB:
     def __init__(self, database_name:str = "templates"):
         password = environ.get("MONGODB_PASSWORD")
-        uri = f"mongodb+srv://itsinvictusjai:{password}@templates.iej66.mongodb.net/?retryWrites=true&w=majority&appName=templates"
+        user = environ.get("MONGODB_USER")
+        cluster = environ.get("MONGODB_CLUSTER")
+        uri = f"mongodb+srv://{user}:{password}@{cluster}.mongodb.net/?retryWrites=true&w=majority&appName=templates"
         # Create a new client and connect to the server
         self.client = MongoClient(uri, server_api=ServerApi('1'))
         self.database = self.client[database_name]
+
+        # Test connection
+        self.client.admin.command('ping')
     
     def count_documents(self, collection:str):
         return self.client[self.database][collection].count_documents({})
