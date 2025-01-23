@@ -1,0 +1,7 @@
+# Skip Pushing these files
+__pycache__/
+
+.env
+db.sqlite3
+staticfiles/
+temp/

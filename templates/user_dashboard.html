@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dalovinium Dashboard</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}?v={{ timestamp }}">
+    <link rel="icon" href="{% static 'favicon.ico' %}?v={{ timestamp }}">
+    <!-- <link rel="stylesheet" href="/static/style.css?v={{timestamp}}" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/static/favicon.ico?v={{timestamp}}"
+    /> -->
+
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <h1>DALOVINUM</h1>
+        </div>
+
+        <nav>
+          <a href="#" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-th-large"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="user-profile">
+          <div class="theme-switcher">
+            <select id="themeSelect" class="theme-select" title="Change Theme">
+              <option value="system">System</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+            <i class="fas fa-sun theme-icon"></i>
+          </div>
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge"></span>
+          </div>
+          <div class="profile">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <span class="username">Invictus Jai</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search images..." />
+        <button id="searchBtn" title="Search">
+          <i class="fas fa-search"></i>
+        </button>
+        <label>
+          <input type="checkbox" name="filter" value="show-prefered-images" class="filter-checkbox" checked/>
+          Show Only Best Images
+        </label>
+        <select
+          name="sort"
+          id="sort"
+          title="Sort images based on festival"
+        ></select>
+      </div>
+
+      <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <p>Loading images...</p>
+      </div>
+
+      <div class="image-grid" id="imageGrid">
+        <!-- Images will be inserted here by JavaScript -->
+      </div>
+
+      <div class="pagination">
+        <button id="prevBtn" class="page-btn" disabled>
+          <i class="fas fa-chevron-left"></i>
+          Previous
+        </button>
+        <button id="nextBtn" class="page-btn" disabled>
+          Next
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </main>
+
+    {% load static %}
+    <script src="{% static 'script.js' %}?v={{ timestamp }}"></script>
+    <script src="/static/script.js?v={{timestamp}}"></script>
+  </body>
+</html>
