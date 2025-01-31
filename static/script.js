@@ -202,7 +202,7 @@ function displayImages(page) {
 
     const img = document.createElement("img");
     img.src = `${image}`;
-    img.alt = image.alt;
+    // img.alt = image.alt;
     img.loading = "lazy"; // Lazy loading for better performance
 
     card.appendChild(img);
