@@ -55,6 +55,46 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+# Add CORS settings
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Vite default
+    "http://localhost:3000",  # React default
+    # Add any other frontend URLs you need
+]
+
+# Optional: Allow credentials (if needed)
+CORS_ALLOW_CREDENTIALS = True
+
+# Optional: Allow all methods
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+# Optional: Allow all headers
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+# For development only (remove in production)
+CORS_ALLOW_ALL_ORIGINS = True
+
+
+
+
+
 ROOT_URLCONF = 'Dashboard.urls'
 
 TEMPLATES = [
