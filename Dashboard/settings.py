@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user_dashboard',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -60,7 +62,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite default
     "http://localhost:3000",  # React default
     "https://zomobit.vercel.app"
-    # Add any other frontend URLs you need
 ]
 
 # Optional: Allow credentials (if needed)
@@ -89,8 +90,7 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 
-# For development only (remove in production)
-CORS_ALLOW_ALL_ORIGINS = True
+
 
 
 
