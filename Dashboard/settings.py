@@ -59,6 +59,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite default
     "http://localhost:3000",  # React default
+    "https://zomobit.vercel.app"
     # Add any other frontend URLs you need
 ]
 
